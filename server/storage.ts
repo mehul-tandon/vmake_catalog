@@ -1288,7 +1288,7 @@ export class DatabaseStorage implements IStorage {
         token,
         userId,
         email,
-        expiresAt: null, // Never expires
+        expiresAt: new Date('2099-12-31'), // Never expires (far future date)
         isUsed: false
       })
       .returning();
