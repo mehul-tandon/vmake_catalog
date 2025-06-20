@@ -25,7 +25,7 @@ export const accessTokens = pgTable("access_tokens", {
   isUsed: boolean("is_used").default(false),
   ipAddress: text("ip_address"),
   deviceFingerprint: text("device_fingerprint"),
-  expiresAt: timestamp("expires_at").notNull(),
+  expiresAt: timestamp("expires_at"),
   usedAt: timestamp("used_at"),
   createdAt: timestamp("created_at").defaultNow(),
 });
