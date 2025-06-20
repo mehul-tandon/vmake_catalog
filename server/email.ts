@@ -59,11 +59,11 @@ class EmailService {
   }
 
   async sendOTP(email: string, otpCode: string, tokenId: string): Promise<boolean> {
-    const subject = 'VMake Catalog - Access Verification Code';
+    const subject = 'Vmake Catalog - Access Verification Code';
     const html = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <div style="text-align: center; margin-bottom: 30px;">
-          <h1 style="color: #D4AF37; margin: 0;">VMake Finessee</h1>
+          <h1 style="color: #D4AF37; margin: 0;">Vmake Finessee</h1>
           <p style="color: #666; margin: 5px 0;">Product Catalog Access</p>
         </div>
         
@@ -77,6 +77,9 @@ class EmailService {
           </p>
           <p style="color: #999; font-size: 14px; margin-top: 20px;">
             This code will expire in 10 minutes and can only be used once.
+          </p>
+          <p style="color: #999; font-size: 14px; margin-top: 20px;">
+            NOTE : This link will will get bound on the device on which it has first opened. So open on the device which you can access everytime accessing the catalog. 
           </p>
         </div>
         
@@ -103,7 +106,7 @@ Token ID: ${tokenId}
 
     try {
       const info = await this.transporter.sendMail({
-        from: `"VMake Finessee" <${process.env.EMAIL_USER}>`,
+        from: `"Vmake Finessee" <${process.env.EMAIL_USER}>`,
         to: email,
         subject,
         html,
@@ -118,7 +121,7 @@ Token ID: ${tokenId}
   }
 
   async sendTokenLink(email: string, tokenLink: string): Promise<boolean> {
-    const subject = 'VMake Catalog - Your Personal Access Link';
+    const subject = 'Vmake Catalog - Your Personal Access Link';
     const html = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <div style="text-align: center; margin-bottom: 30px;">
@@ -141,6 +144,7 @@ Token ID: ${tokenId}
           
           <p style="color: #999; font-size: 14px; margin-top: 25px;">
             <strong>Important:</strong> This link is unique to you and will be bound to your device for security.
+            NOTE : This link will will get bound on the device on which it has first opened. So open on the device which you can access everytime accessing the catalog. 
             You may need to complete your profile before accessing the catalog.
           </p>
           
